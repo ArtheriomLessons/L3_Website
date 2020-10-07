@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Ressources L3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" media="screen">
+  </head>
+  
+  <body>
+  <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+      <div class="container">
+        <a href="./" class="navbar-brand">Ressources L3</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="./genielog.html">Génie Logiciel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./webserveur.html">Technologie Web-Serveur</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+	
+	<br /><br />
+	<div class="jumbotron">
+  
+  <h2 class="display-4">> Généralités - Web-Serveur</h2>
+  <hr class="my-4">
+  <h3>Questions et rendus de TP : </h3>
+  <ul>
+	<li>Pour toute question : <a href="mailto:Florian.Forestier@etu.uca.fr">Florian.Forestier@etu.uca.fr</a></li>
+	<li>Les rendus se font sur Moodle</li>
+  </ul>
+  <h3>Notation :</h3>
+  <ul>
+	<li>1 projet de TP - 6 séances de 3h</li>
+	<li>Rendu final 7j après <a href="https://www.youtube.com/watch?v=qyAPM5DWVS8" target="_blank">la dernière séance</a> (jusqu'à 23h59).</li>
+  </ul>
+  <ul>
+	<li>Pensez à envoyer un code & un (court) rapport.</li>
+	<ul>
+	<li>Qui explique vos choix d'implémentation & votre implémentation</li>
+	<li>Vos choix technologiques (note : "car c'est ce qu'on à vu en cours" est valable !)</li>
+	<li>Qui explique là où vous avez bloqué, et comment vous avez résolu le soucis (ou à défaut, vos idées pour résoudre le soucis).</li>
+	</ul>
+  </ul>
+  
+  <p><b>Rappel : S'entraider et poser des questions, c'est bien !</b></p>
+  
+  <hr>
+  <h2 class="display-4">> TP - Objectif</h2>
+  <hr class="my-4">
+  <h3>Objectif : Faire un mini-blog</h3>
+  <ul>
+	<li>Fonctionnalités... fonctionnelles :</li>
+	<ul>
+		<li>Gestion des articles en CRUD (Create, Read, Update, Delete)</li>
+		<ul>
+			<li>Titre, Contenu, Auteur, date de création</li>
+		</ul>
+		<li>Système de commentaires en CRUD</li>
+		<ul>
+			<li>Contenu, auteur, date de création, article</li>
+		</ul>
+		<li>Gestion (très basique) des utilisateurs</li>
+		<ul>
+			<li>Nom d'utilisateur, mot de passe, isAdmin, isBanned</li>
+			<li>Merci de hasher le mot de passe en base !</li>
+		</ul>
+		
+		<li>Règles utilisateur :</li>
+		<ul>
+			<li>Seul un administrateur peut créer/éditer/supprimer un article</li>
+			<li>Un membre banni ne peut pas créer de commentaire</li>
+			<li>Seuls les personnes connectées peuvent créer un commentaire</li>
+		</ul>
+	</ul>
+	<li>Fonctionnalités techniques :</li>
+	<ul>
+		<li>Respect des verbes HTTP & des codes retour HTTP</li>
+		<li>Authentification (restez sur un truc simple, ne sortez pas une usine à gaz !)</li>
+		<li>Persistance de la donnée</li>
+		<li>Interface utilisateur "conviviale" (une GUI)</li>
+		<li>Session sans état (pas de session côté serveur)</li>
+	</ul>
+	</ul>
+	
+	<h3>Et <u>si vous avez du temps</u> :</h3>
+	<ul>
+		<li>Plusieurs tâches bonus, pour vous faire progresser, ajouter un peu de piment et monter vos notes de TP</li>
+		<li>Côté fonctionnel :</li>
+		<ul>
+			<li>Gérer des réponses à des commentaires (voir les sites LinuxFR ou 20Minutes pour un aperçu détaillé du fonctionnement)</li>
+			<li>Demander à l'utilisateur de valider son mail quand il s'inscrit</li>
+			<li>Lister les articles par auteur</li>
+			<li>Ajouter un système de tag et de recherche par tag sur les articles</li>
+			<li>Système d'article épinglé</li>
+		</ul>
+		<li>Côté technique :</li>
+		<ul>
+		    <li>Négociation de contenu (Par exemple, ajoutez la possibilité de ne pas récupérer une page HTML, mais sa représentation JSON ou XML)</li>
+			<li>Cache client et/ou serveur (si vous ne pouveez pas le faire pour raison techniques, expliquez la démarche)</li>
+		</ul>
+	</ul>
+   
+     <hr>
+  <h2 class="display-4">> TP - Implémentation</h2>
+  <hr class="my-4">
+  <h3>tl;dr : vous êtes libres.</h3>
+  <ul>
+	<li>Vous choisissez votre/vos langage(s) :</li>
+	<ul>
+	<li>Java, Golang, Node.js (meh), Python (meh²), PHP, Golo, Vert.x, ...</li>
+	<li>Evitez quand même les trucs trop ésotériques et/ou volontairement débiles (Brainfuck, Whitespace, Befunge, ...)</li>
+	<li>Pour le front : HTML/CSS classique, ou avec du JS, ou avec un Framework (Vue.js ou Angular par exemple)</li>
+	</ul>
+	<li>Vous choisissez votre SGBD :</li>
+	<ul>
+	<li>Relationnel : MariaDB, MySQL, Postgres, H2, SQLite, Oracle (non je rigole, interdiction d'utiliser Oracle), [...]</li>
+	<li>Document : MongoDB, RethinkDb, [...]</li>
+	</ul>
+	<li><u>Essayez de <b>NE PAS utiliser de Framework</b> (style Spring, Laravel, etc) :</u></li>
+	<ul>
+	<li>Un framework va abstraire l'implémentation de nombreuses parties du travail demandé</li>
+	<li>Vous ne progresserez pas si l'ordinateur fait tout le travail...</li>
+	</ul>
+	<li>Architecture MVC (comme dans le cours) ou micro-services, vous décidez :</li>
+	<ul>
+	<li>Après tout, si vous aimez vous faire du mal, qui suis-je pour vous en empêcher ?</li>
+	<li>Si vous partez sur du micro-services, vous avez le droit de tricher en ajoutant des headers pour désactiver le CORS</li>
+	<li>Je suis ouvert à toute autre idée d'architecture loufoque, tant que vous arrivez à la justifier (ou à l'expliquer)</li>
+	</ul>
+	</ul>
+	
+	
+  <h3>Les conseils "du chef" :</h3>
+  <ul>
+	<li>Pour mon TP de Web-Serveur, j'avais utilisé :</li>
+	<ul>
+	<li>Java (7 à l'époque, #JeSuisVieux)</li>
+	<li>Spark pour le serveur Web</li>
+	<li>FreeMarker pour les pages</li>
+	<li>Le package <code>java.sql</code> avec des <code>PreparedStatement</code></li>
+	<li>H2 en configuration "stockage fichier"</li>
+	</ul>
+</ul>
+	 
+	 <hr>
+	 <h2 class="display-4">> Ressources / Documents & infos utiles</h2>
+	 <hr class="my-4">
+   <ul>
+     <li>Par où commencer ?</li>
+	 <ol>
+		<li>Définir votre "stack" techno : quel base de données ? Quel architecture ? Quel code pour le serveur ? Si vous n'avez pas trop d'idée, le mieux serait de partir sur H2, FreeMarker et une architecture MVC. Les librairies sont disponibles sur Moodle.</li>
+		<li>Puis, il vous faut réfléchir au modèle de données : Comment structurer l'information dans votre base de données ? Vous pouvez faire un diagramme UML pour les définir, par exemple.</li>
+		<li>Ensuite, il vous faudra définir les adresses (<i>endpoints</i>) sur lesquelles les ressources seront disponibles : où créer un article ? où récupérer la liste d'articles ? etc.</li>
+		<li>Une fois ces trois points réalisés, vous aurez terminé le "cadrage fonctionnel". L'heure sera donc venue de passer au code.</li>
+		<li>En général, l'idée est de partir sur la strate la plus basse : définir vos objets, et les requêtes SQL pour accèder aux données.</li>
+		<li>Ensuite, on va créer le code métier qui permet de récupérer un objet depuis l'extérieur, de vérifier ses critères, et de l'ajouter/modifier dans la base de données.</li>
+		<li>Puis, on s'occupe des contrôleurs (la création des endpoints pour récupérer/créer/modifier les objets dans la base</li>
+		<li>Enfin, on s'occupe de l'authentification.</li>
+	 </ol>
+   </ul>
+   
+   
+     <hr>
+	 <h2 class="display-4">> Question / Réponse</h2>
+	 <hr class="my-4">
+  <h3>Question 1</h3>
+   <ul>
+     <li>Vide... Pour le moment</li>
+   </ul>
+</div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+  </body>
+</html>

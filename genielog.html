@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Ressources L3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" media="screen">
+  </head>
+  
+  <body>
+  <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+      <div class="container">
+        <a href="./" class="navbar-brand">Ressources L3</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="./genielog.html">Génie Logiciel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./webserveur.html">Technologie Web-Serveur</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+	
+	<br /><br />
+	<div class="jumbotron">
+  
+  <h2 class="display-4">> Généralités - Génie Logiciel</h2>
+  <hr class="my-4">
+  <h3>Questions et rendus de TP : </h3>
+  <ul>
+	<li>Pour toute question : <a href="mailto:Florian.Forestier@etu.uca.fr">Florian.Forestier@etu.uca.fr</a></li>
+	<li>Les rendus se font sur Moodle</li>
+  </ul>
+  <h3>Notation :</h3>
+  <ul>
+	<li>2 premiers TPs non-notés (TP1 et TP2)</li>
+	<li>TP3 et TP4 notés - Environ 30% de la notation sur le TP3, le reste sur TP4</li>
+  </ul>
+  <ul>
+	<li>Inutile de me faire un rapport textuel sauf si vous utilisez des outils exotiques dans le code ou la compilation.</li>
+  </ul>
+  <ul>
+	<li><a href="./Genie_Logiciel/Sujets/TP1.pdf" target="_blank">Sujet TP1</a></li>
+	<li><a href="./Genie_Logiciel/Sujets/TP2.pdf" target="_blank">Sujet TP2</a> - <a href="./Genie_Logiciel/Sujets/TP2Gradle.pdf" target="_blank">+ Gradle</a></li>
+	<li><a href="./Genie_Logiciel/Sujets/TP3.pdf" target="_blank">Sujet TP3</a></li>
+	<li><a href="./Genie_Logiciel/Sujets/TP4.pdf" target="_blank">Sujet TP4</a></li>
+  </ul>
+  
+  <p><b>Rappel : S'entraider et poser des questions, c'est bien !</b></p>
+  
+  <hr>
+  <h2 class="display-4">> TPs</h2>
+  
+  <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          TP 1 - Non noté / 3h
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <ul>
+	<li>Si vous souhaitez utiliser un dépôt distant au lieu du dépôt local, <u>vous pouvez (mais n'êtes pas obligés !)</u> :</li>
+	<ul>
+		<li>GitHub (<a href="https://github.com/" target="_blank">https://github.com/</a>)</li>
+		<li>BitBucket (<a href="https://bitbucket.org/" target="_blank">https://bitbucket.org/</a>)</li>
+		<li>Ou sur mon GitLab personnel (<a href="https://git.artheriom.fr/" target="_blank">https://git.artheriom.fr/</a>)</li>
+	</ul>
+	<li>Note : Si vous avez une erreur lors du clone/push à cause d'un certificat invalide : <code>git config --global http.sslVerify false</code></li>
+   </ul>
+   <ul>
+     <li>Même si le TP n'est pas noté, prenez des notes dans un coin pour vous-même !</li>
+	 <li>TP testé & vérifié sur mon ordinateur personnel.
+   </ul>
+   <h3 class="display-5">/!\ IMPORTANT - A LIRE AVANT DE COMMENCER</h3>
+   <ul>
+	<li>Lorsque le TP indique de faire un <code>git commit -a -m ...</code>, faites un : <code>git add . && git commit -m ...</code>. Explication dans la section "Q/R + debug" juste en dessous (premier point) :-)</li>
+   </ul>
+   
+   <h3 class="display-5">Questions / Réponses + debug</h3>
+   <ul>
+		<li>Si, au moment de faire la gestion du conflit, git vous indique qu'il n'y à pas de conflit, effectuer les commandes ci-dessous</li>
+		<ul><li>Ce bug est dû au fait qu'une récente mise à jour de <code>git</code> a modifié le comportement du <code>-a</code> dans <code>git commit</code>.</li>
+		<li>Dans les anciennes versions, le <code>-a</code> ajoutait tout les fichiers au commit. Dans les nouvelles versions, <code>-a</code> ajoute uniquement les fichiers ayant déjà été commités une fois...</li>
+   </ul></ul>
+      <code style="white-space: pre-wrap; margin-top:-15px">
+git checkout conflict
+echo "je suis un conflit" >> conflit.txt
+git add .
+git commit -m "conflit from conflict!"
+git checkout master
+echo "Mais non y'a pas de conflit ici" >> conflit.txt
+git add .
+git commit -m "conflit from master !"
+git merge conflict 
+// Vous pouvez reprendre le TP !
+   </code>
+   <ul>
+		<li>A la dernière étape, le fichier <code>test3.txt</code> n'apparait pas dans le dossier <code>Git/</code>, mais j'ai bien la modification dans <code>git log</code></li>
+		<ul><li> => En fait, Git est resté bloqué sur l'idée que vous vouliez supprimer <code>test3.txt</code> du dossier <code>Git/</code> (en raison d'une commande effectuée beaucoup plus haut)</li>
+		<li>Vous pouvez faire un <code>git stash</code> pour le voir. cette commande vous permet de dire à Git de mettre les modifications en cours de côté, et d'afficher la dernière version du dépôt connue.</li>
+		<li>Bravo, vous venez de finir le TP ;-)</li></ul>
+   </ul>
+   
+  <ul>
+	<li>A la dernière étape, j'ai une erreur : Git refuse de faire le push !</li>
+	<ul>
+		<li>Vous avez très probablement mal tapé une commande dans le dossier <code>Git/</code> : <code>git config receive.denyCurrentBranch ignore</code></li>
+		<li>Copiez/collez cette ligne et réessayez ! :-)</li>
+		</ul>
+	</ul>
+   
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          TP 2 - Non noté / 3h
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <ul>
+     <li>Même si le TP n'est pas noté, prenez des notes dans un coin pour vous-même !</li>
+	 <li>Les fichier sont disponibles sur 
+		<a href="https://git.artheriom.fr/l3-informatique-2020-2021/site-l3/-/tree/master/Genie_Logiciel/HelperTP2" target="_blank">
+			https://git.artheriom.fr/l3-informatique-2020-2021/site-l3/-/tree/master/Genie_Logiciel/HelperTP2
+		</a>.
+	</li>
+	 <li>TP testé & vérifié dans un container Docker </li>
+   </ul>
+   <code style="white-space: pre-wrap; margin-top:-15px">
+Démarrage & initialisation du container (pour information) : 
+docker run --tty --interactive debian
+apt update && apt install -y nano gcc make scons rake ant
+   </code>
+   </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          TP 3 - Noté / 3h
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        <ul>
+     <li>Rendu par Moodle</li>
+	 <li>Les fichiers du Live Coding de la semaine dernière sont ici : <a href="https://git.artheriom.fr/l3-informatique-2020-2021/site-l3/-/tree/master/Genie_Logiciel/LiveCoding_Java" target="_blank">https://git.artheriom.fr/l3-informatique-2020-2021/site-l3/-/tree/master/Genie_Logiciel/LiveCoding_Java</a></li>
+	 <li>Vidéo rappel java : <a href="https://www.youtube.com/watch?v=567_hWQJYak&feature=youtu.be">https://www.youtube.com/watch?v=567_hWQJYak&feature=youtu.be</a></li>
+	 <ul>
+	 <li>Groupe 1 : Rendu avant le 12/10/2020 00h01 ! (soit 7j de délai)</li>
+	 <li>Groupe 2 : Rendu avant le 13/10/2020 00h01 ! (soit 7j de délai)</li>
+	 <li>Groupe 3 : Rendu avant le 15/10/2020 00h01 ! (soit 7j de délai)</li>
+	 </ul>
+	 <li>Si vous le souhaitez, vous pouvez envoyer le code sur un serveur Git, et m'envoyer le lien (GitHub, BitBucket, GitLab perso ou autre). Pensez juste à laisser le dépôt en <b>public</b> !</li>
+  </ul> 
+  <ul>
+	<li>Un "starter" pour vous aider est disponible ici (Mis à jour 04/10/2020 !) => 
+		<a href="https://git.artheriom.fr/l3-informatique-2020-2021/site-l3/-/tree/master/Genie_Logiciel/HelperTP3" target="_blank">
+			https://git.artheriom.fr/l3-informatique-2020-2021/site-l3/-/tree/master/Genie_Logiciel/HelperTP3
+		</a>.
+	</li>
+	<li>Un corrigé sera disponible à partir du 17/10/2020 sur 
+		<a href="https://git.artheriom.fr/l3-informatique-2020-2021/corrig-tp3-genie-logiciel" target="_blank">
+			https://git.artheriom.fr/l3-informatique-2020-2021/corrig-tp3-genie-logiciel
+		</a>.
+	
+	</li>
+  </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          TP 4 - Noté / 3h
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+      <div class="card-body">
+      <ul>
+     <li>Rendu par Moodle</li>
+	 <ul>
+	 <li>Groupe 1 : Rendu avant le 26/10/2020 00h01 ! (soit 14j de délai)</li>
+	 <li>Groupe 2 : Rendu avant le 27/10/2020 00h01 ! (soit 14j de délai)</li>
+	 <li>Groupe 3 : Rendu avant le 29/10/2020 00h01 ! (soit 14j de délai)</li>
+	 </ul>
+	 <li>Si vous le souhaitez, vous pouvez envoyer le code sur un serveur Git, et m'envoyer le lien (GitHub, BitBucket, GitLab perso ou autre). Pensez juste à laisser le dépôt en <b>public</b> !</li>
+   </ul>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  
+  
+  
+   
+   
+   <hr>
+	 <h2 class="display-4">> Ressources / Documents & infos utiles</h2>
+	 <hr class="my-4">
+   <ul>
+     <li><a href="https://github.com/clermontech/documents/blob/master/resources/workshops/2014/git/Git_cheat_sheet_v3.pdf" target="_blank">Liste des commandes Git et explication rapide (merci au Clermont'ech ! <3)</a></li>
+	 <li>Si vous utilisez un dépôt Git distant :</li>
+	 <ul>
+		<li>Le plus simple est de créer un projet sur le serveur Git, puis de le cloner : <code>git clone <adresse_http></code></li>
+		<li>Il faut penser à faire des git push pour envoyer les informations sur le serveur, et des git pull pour les récupérer !</li>
+		<ul>
+			<li><code>git pull origin master</code> <= Récupérer la branche "master"</li>
+			<li><code>git push origin master</code> <= Envoyer vos commits vers le serveur sur la branche "master"</li>
+		</ul>
+		<li>Vous pouvez changer de branche de la même manière que le TP</li>
+		<ul>
+			<li>Si vous avez une erreur <code>remote branch does not exist</code> : Essayez avec un checkout (exemple : <code>git checkout -b coucou</code>).</li>
+		</ul>
+	 </ul>
+   </ul>
+   
+     <hr>
+	 <h2 class="display-4">> Question / Réponse</h2>
+	 <p><b>Questions générales uniquement ! Pour les questions relatives à un sujet de TP, regardez dans la section du TP !</b></p>
+	 <hr class="my-4">
+	 
+	 <h3>C'est quoi Gradle ?</h3>
+     <p>Gradle est un outil de compilation, initialement dédié aux projets Java. Il se différencie de Ant (vu en TP2), car celui-ci gère également les dépendances de votre projet Java.</p>
+	 <p>Ce type d'outil (comme Maven) est très utile, notamment lorsque les projets commencent à grossir, ou ont besoin de librairies : On ne stocke plus les libs avec le code, on les télécharges au besoin. Cela simplifie d'autant la gestion des versions de ces dernières.</p>
+	 
+	 
+	 <h3>vi ne quitte pas avec <code>:q</code> !</h3>
+	 <p>Pour une raison inconnue, il est possible que les PC de la fac soient configurés pour... nano. Pour quitter Nano : <code>Ctrl+X</code> puis <code>N</code> et <code>Entrée</code></p>
+	 
+</div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+  </body>
+</html>
